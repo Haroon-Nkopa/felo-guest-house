@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felo Guest House | Comfort & Affordable Accommodation in Orange Farm</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8B6508; /* Elegant Bronze/Gold */
+            --dark: #1A1A1A;
+            --light: #F9F9F9;
+            --accent: #E6B800;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-book {
+            background-color: var(--primary);
+            color: white !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-book:hover {
+            background-color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://googleusercontent.com') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Container Utilities */
+        .section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            font-size: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Pricing Cards */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-card .cost {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            height: 350px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f0f0;
+        }
+
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Details */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .info-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp Green */
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simplification for plain HTML/CSS layout */
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <h1>FELO GUEST HOUSE</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#rates">Rates</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact" class="btn-book">Book Now</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h2>Your Comfort Is Our Priority</h2>
+        <p>Experience clean, secure, and affordable accommodation tailored to your needs in Orange Farm.</p>
+        <a href="https://wa.me" class="cta-button" style="background-color: var(--primary);">View Availability</a>
+    </header>
+
+    <!-- Rates Section -->
+    <section id="rates" class="section">
+        <h2 class="section-title">Affordable Rates</h2>
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Day Time Rest</h3>
+                <p>Perfect for a quick refresh or short stay</p>
+                <div class="cost">R150</div>
+                <p>Per 2 Hours</p>
+            </div>
+            <div class="price-card">
+                <h3>Overnight Stay</h3>
+                <p>Enjoy a full night of peaceful sleep</p>
+                <div class="cost">R400</div>
+                <p>Per Night</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <h2 class="section-title">Our Place</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEAnxchdG094Potru17JJoFSEh1270dYOrY_CbGN5UHAFEEHao9g0_sF1XirwVp_ItpYgxRhhdMdZidLbHUA46E0kwYS4qj0saft_hyj-JCiyVmNR5Nu5qEFl2_qcT92rWea2ok=w253-h337-k-no" alt="Felo Guest House View 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGmP-LzG0IpEpjy0foW68kp8ATykF1B9_L9ruWy7FB2rD_1OiFy9AVZ48NKe6WVwEv5-DxpGBxH5O4nEkPv2vQg3Us2uSbg1GWlhG91guxBqJnNpTpAVFskmw2ykMdGGRydBLpK1w=w253-h337-k-no" alt="Felo Guest House View 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGC-SRqBny469wJQ0vLWXC3Fs1INW_rP4_h_fiHZCTiPXHILXlU1vSLBHvBBgLtmrLoSVCmbQLhDz9LLCEb-FPHH9wXUH9V0wkzgQNP3TYKiJVQGRjA0BVK2HFdRoqeneA4_voJ=w253-h337-k-no" alt="Felo Guest House View 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG6OcSQif2g0_XbODapABwTtrG2JV51zNQkfVkwzujMONGO0iOwFoRH8K6WK1CnCsE3jeTM2nqvSKmO7_KhGRVacHZgWzb29IwNYg_6t0ScakWbY7Dfodng7zXNPUXmNU5v75sm=w253-h337-k-no" alt="Felo Guest House View 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section testimonials">
+        <h2 class="section-title">What Our Guests Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                                <p>"Very clean rooms and the staff is very welcoming. Highly recommend if you are looking for privacy and comfort in Stretford."</p>
+                <strong style="display:block; margin-top:1rem;">- Local Guest</strong>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Great rates for overnight stays. Safe environment and easily accessible location right on Lake Side street."</p>
+                <strong style="display:block; margin-top:1rem;">- Google Reviewer</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Find & Contact Us</h2>
+        <div class="contact-content">
+            <div>
+                <div class="info-block">
+                    <h3>Our Address</h3>
+                    <p>9238 Lake Side St, Ext 6, Stretford,<br>Orange Farm, Johannesburg, 1841</p>
+                </div>
+                <div class="info-block">
+                    <h3>Phone / WhatsApp</h3>
+                    <p>067 248 4272</p>
+                </div>
+                <a href="https://wa.me" class="cta-button" target="_blank">Chat on WhatsApp</a>
+            </div>
+            <div>
+                <h3>Location Map</h3>
+                <p style="margin-bottom: 1rem; color: #666;">Visit us down Ext 6 Lake Side Street near Stretford Station.</p>
+                <!-- Placeholder for map visual alignment -->
+                <div style="background-color: #e5e5e5; width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border-radius: 8px; color: #555; font-weight: 500;">
+                    Orange Farm, Stretford Area Map
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Felo Guest House. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #aaa;">Website beautifully created by <a href="https://haruntech.online" target="_blank">Harun Tech</a></p>
+    </footer>
+
+</body>
+</html>
+
